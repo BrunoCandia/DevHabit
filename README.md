@@ -2,6 +2,64 @@
 
 A developer habit tracking system, built with a pragmatic RESTful API.
 
+# Client Application
+
+The client application is a Single Page Application (SPA) built with React and TypeScript. It interacts with the RESTful API to allow users to manage their habits and track progress.
+
+## Setup and Run Client Application
+1. Navigate to the `devhabit-ui` directory:
+   ```bash
+   cd devhabit-ui
+   ```
+
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+# REST API Application
+
+The REST API is built using ASP.NET Core and follows best practices for RESTful API design.
+
+## Setup and Run REST API Application
+1. Set docker-compose in Visual studio to run both the API and a PostgreSQL database.
+
+## Register a new user if needed
+1. Use a tool like Postman or curl to send a POST request to the registration endpoint:
+   ```
+   POST http://localhost:5000/api/auth/register
+   Content-Type: application/json
+   {
+	   "username": "admin@devhabit.net",
+	   "password": "your_password"
+   }
+   ```
+
+# Deployment and Monitoring
+
+## Deploy the client application
+
+npm install -g @azure/static-web-apps-cli
+swa init
+swa build
+swa deploy --env production --deployment-toke <YOUR_DEPLOYMENT_TOKEN>
+
+## Deploy the database and applying migration
+
+Use the generated SQL script from the EF Core migrations to set up the database schema in your production database.
+application_migrations.sql
+identity_migration.sql
+seed_roles.sql
+
+## Deploy the REST API
+
+
+
 # Resources
 
 02 - Building REST APIs
